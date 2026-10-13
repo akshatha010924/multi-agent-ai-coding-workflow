@@ -1,0 +1,17 @@
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+markers = ["integration: uses a real subprocess / real MCP stdio server"]
+
+[tool.ruff]
+line-length = 130
+target-version = "py312"
+extend-exclude = ["workspace", "data"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "S"]
+ignore = ["S101", "S603", "S404", "B008", "UP046", "UP047"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["S", "E501", "E702"]
+"app/llm/_mock_fixtures.py" = ["E501"]
